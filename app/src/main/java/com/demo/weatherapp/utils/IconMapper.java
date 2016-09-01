@@ -8,9 +8,17 @@ import java.util.Map;
 
 /**
  * Weather Application 1.0
+ *
+ * Mapper class to map the static object references.
  */
 public class IconMapper {
 
+    /**
+     * Final hashmap to which holds the look up for weather info and icon associated with it.
+     * <p>
+     *     Make sure to check the key before trying to access the associated icon.
+     * </p>
+     */
     public static final Map<String, Integer> iconLookUp = Collections
             .unmodifiableMap(new HashMap<String, Integer>(){
                 {
