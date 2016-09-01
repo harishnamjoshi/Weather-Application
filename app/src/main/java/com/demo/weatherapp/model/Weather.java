@@ -4,6 +4,10 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Weather Application 1.0
+ * <p>
+ *     Modal will hold the weather data which will be coming from the server for current
+ *     location of the user.
+ * </p>
  */
 public class Weather {
 

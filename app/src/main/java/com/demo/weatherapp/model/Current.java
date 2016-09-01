@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 /**
  * Weather Application 1.0
+ * <p>
+ *     Modal will hold the weather data for the current day.
+ * </p>
  */
 public class Current {
 

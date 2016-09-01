@@ -6,6 +6,10 @@ import java.util.ArrayList;
 
 /**
  * Weather Application 1.0
+ *
+ * <p>
+ *     Modal will hold the weather data for the future days.
+ * </p>
  */
 public class Daily {
 

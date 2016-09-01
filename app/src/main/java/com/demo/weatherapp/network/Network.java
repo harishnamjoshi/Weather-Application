@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.demo.weatherapp.BuildConfig;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -15,12 +17,50 @@ import java.net.URL;
 
 /**
  * Weather Application 1.0
+ *
+ * <p>
+ *      Network utility to perform the network protocols. This will have the capability of following
+ *      network request.
+ *      <ul>
+ *          <li>{@link #GET}</li>
+ *
+ *          <li>{@link #PUR}</li>
+ *
+ *          <li>{@link #POST}</li>
+ *
+ *          <li>{@link #DELETE}</li>
+ *      </ul>
+ *
+ *      This will implement the {@link Methods} interface.
+ * </p>
  */
 public class Network implements Methods {
 
-    private static final boolean D = false;
+    /**
+     * Debug field to use it over logging.
+     */
+    private static final boolean D = false || BuildConfig.DEBUG;
 
+    /**
+     * Tags used inside log.
+     */
     private static final String TAG = "Network";
+
+
+    /**
+     * This method will perform the network call with the paramter passed. Internally this will
+     * call {@link #execute(String, String, JSONObject)} to create the url connection.
+     * <p>
+     *     Although method will check for the valid method type. If method type {@link #POST} or
+     *     {@link #PUT} passed it will throw a IllegalStateException as there is not payload passed
+     *     under this.
+     * </p>
+     *
+     * @param url to which connection needs to establish
+     * @param method the method which this request is of.
+     *
+     * @return response body which will be returned by the server, in json string format.
+     */
 
     public static String execute(@NonNull String url, @NonNull String method) {
         if (TextUtils.equals(method, GET) || TextUtils.equals(method, DELETE)){
@@ -30,6 +70,17 @@ public class Network implements Methods {
         }
     }
 
+    /**
+     * This method will perform the network call with the paramter passed. Internally this will
+     * call {@link #createConnection(String, String)} to create the url connection.
+     *
+     * @param url to which connection needs to establish
+     * @param method the method which this request is of.
+     *
+     * @param payload which will be passed to the server.
+     *
+     * @return response body which will be returned by the server, in json string format.
+     */
     public static String execute(@NonNull String url, @NonNull String method,
             @Nullable JSONObject payload) {
         StringBuilder sb = null;
@@ -71,8 +122,18 @@ public class Network implements Methods {
         return sb != null ? sb.toString() : null;
     }
 
+    /**
+     * Method which will create {@link HttpURLConnection} using url and method passed. Connection
+     * will have 10 sec time out.
+     *
+     *
+     * @param url to which connection needs to establish
+     * @param method the method which this request is of.
+     *
+     * @return {@link HttpURLConnection} to perform network protocol.
+     */
     @Nullable
-    public static HttpURLConnection createConnection(String url, String method) {
+    public static HttpURLConnection createConnection(@NonNull String url, @NonNull String method) {
         HttpURLConnection conn = null;
         try {
             // Send GET data request
