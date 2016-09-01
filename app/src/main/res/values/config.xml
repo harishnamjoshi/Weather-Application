@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="base_url">https://api.forecast.io/forecast/7dea2423dd5c383c01a842be1b2e6bb1/</string>
+
+</resources>
