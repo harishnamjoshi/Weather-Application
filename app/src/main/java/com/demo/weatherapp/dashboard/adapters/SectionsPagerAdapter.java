@@ -10,7 +10,7 @@ import com.demo.weatherapp.dashboard.fragments.DailyWeatherFragment;
 import com.demo.weatherapp.model.Weather;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 

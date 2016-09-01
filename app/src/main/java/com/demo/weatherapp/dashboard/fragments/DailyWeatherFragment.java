@@ -15,7 +15,7 @@ import com.demo.weatherapp.dashboard.adapters.DailyRecyclerAdapter;
 import com.demo.weatherapp.model.Daily;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class DailyWeatherFragment extends Fragment{
 

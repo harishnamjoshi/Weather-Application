@@ -15,7 +15,7 @@ import com.demo.weatherapp.utils.IconMapper;
 import com.demo.weatherapp.utils.Utils;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class CurrentWeatherFragment extends Fragment {
 

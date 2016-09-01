@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class Daily {
 

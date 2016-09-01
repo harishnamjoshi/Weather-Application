@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class Utils {
 

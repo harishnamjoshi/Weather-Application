@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class IconMapper {
 

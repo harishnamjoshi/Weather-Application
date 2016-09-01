@@ -32,6 +32,9 @@ import com.demo.weatherapp.utils.Utils;
 import static com.demo.weatherapp.dashboard.loader.WeatherLoader.URL;
 import static com.demo.weatherapp.utils.LoaderIds.WEATHER;
 
+/**
+ * Weather Application 1.0
+ */
 public class LandingScreen extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Weather> {
 

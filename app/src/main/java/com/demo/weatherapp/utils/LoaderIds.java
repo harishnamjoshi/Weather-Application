@@ -1,7 +1,7 @@
 package com.demo.weatherapp.utils;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public interface LoaderIds {
 

@@ -3,7 +3,7 @@ package com.demo.weatherapp.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class Data {
 

@@ -1,7 +1,7 @@
 package com.demo.weatherapp.network;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public interface Methods {
 

@@ -16,7 +16,7 @@ import com.demo.weatherapp.utils.Utils;
 import java.util.List;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class DailyRecyclerAdapter extends RecyclerView.Adapter<DailyRecyclerAdapter.DayWeather> {
 

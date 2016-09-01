@@ -14,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class Network implements Methods {
 

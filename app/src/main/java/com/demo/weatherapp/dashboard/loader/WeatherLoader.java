@@ -10,7 +10,7 @@ import com.demo.weatherapp.model.Weather;
 import com.google.gson.GsonBuilder;
 
 /**
- * WeatherApp
+ * Weather Application 1.0
  */
 public class WeatherLoader extends AsyncTaskLoader<Weather> {
 
