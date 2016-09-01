@@ -17,11 +17,21 @@ import java.util.List;
 
 /**
  * Weather Application 1.0
+ * <p>
+ *     Adapter which will load the daily weather information.
+ * </p>
  */
 public class DailyRecyclerAdapter extends RecyclerView.Adapter<DailyRecyclerAdapter.DayWeather> {
 
+    /**
+     * List of weather info for futuristic days.
+     */
     private List<Data> mData;
 
+    /**
+     * Contructor to attach the data set to the adapter.
+     * @param data daily weather.
+     */
     public DailyRecyclerAdapter(@NonNull List<Data> data) {
         mData = data;
     }
@@ -51,9 +61,19 @@ public class DailyRecyclerAdapter extends RecyclerView.Adapter<DailyRecyclerAdap
         return mData.size();
     }
 
+    /**
+     * View hold which will create the view object from the parent passed as a paramter from
+     * constructor.
+     */
     public class DayWeather extends RecyclerView.ViewHolder {
+        /**
+         * View object to show date and summary for the item day
+         */
         public TextView date, summary;
 
+        /**
+         * Current days icon.
+         */
         public ImageView icon;
 
         public DayWeather(View view) {

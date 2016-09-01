@@ -181,19 +181,23 @@ public class LandingScreen extends AppCompatActivity
 
     @Override
     public Loader<Weather> onCreateLoader(int id, Bundle args) {
+        //noinspection ConstantConditions
         return new WeatherLoader(getApplicationContext(), args.getString(URL));
     }
 
     @Override
     public void onLoadFinished(Loader<Weather> loader, @Nullable Weather data) {
+        //Check if view page is initialized.
         if (mViewPager == null) {
             mViewPager = (ViewPager) findViewById(R.id.container);
         }
 
+        //Check progress is being shown if yes then make the visiblity of it to gone.
         if (mBar.getVisibility() == View.VISIBLE) {
             mBar.setVisibility(View.GONE);
         }
 
+        //Check whether data model passed is null or not.
         if (data != null) {
             if (mSectionsPagerAdapter == null)
             // Create the adapter that will return a fragment for each of the three
@@ -213,9 +217,12 @@ public class LandingScreen extends AppCompatActivity
             //noinspection ConstantConditions
             mTabs.setupWithViewPager(mViewPager);
 
+            // show user a success message.
             Snackbar.make(mViewPager, "Load Success",
                     Snackbar.LENGTH_LONG).setAction("Action", null).show();
         } else if (!Utils.isNetworkConnected(getApplicationContext())) {
+            //The data is not returned due to network error. Hence user should be promted with
+            //the same.
             //noinspection ConstantConditions
             Snackbar.make(mBar, R.string.network_connection,
                     Snackbar.LENGTH_LONG).setAction("Action", null).show();

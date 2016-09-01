@@ -11,9 +11,18 @@ import com.demo.weatherapp.model.Weather;
 
 /**
  * Weather Application 1.0
+ * <p>
+ *     Pager adapter which can be used to load the weather fragments. And attach the data model
+ *     to each.
+ * </p>
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+    /**
+     * Model object which will hold the weather data for current as well as daily fragment.
+     *
+     * This can be passed to the concerned fragment while loading the data.
+     */
     private Weather mWeather;
 
     public SectionsPagerAdapter(FragmentManager fm, @NonNull Weather weather) {
