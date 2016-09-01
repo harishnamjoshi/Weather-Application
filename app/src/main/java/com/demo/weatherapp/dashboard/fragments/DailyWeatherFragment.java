@@ -1,6 +1,7 @@
 package com.demo.weatherapp.dashboard.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,9 +17,18 @@ import com.demo.weatherapp.model.Daily;
 
 /**
  * Weather Application 1.0
+ *
+ * <p>
+ *     View which will be used to show the list of future weather info. This will populate a list
+ *     from the data model {@link Daily} passed.
+ * </p>
  */
 public class DailyWeatherFragment extends Fragment{
 
+    /**
+     * Model which will hold the data for future days.
+     */
+    @Nullable
     private Daily mDaily;
 
     /**
@@ -54,6 +64,11 @@ public class DailyWeatherFragment extends Fragment{
         return rootView;
     }
 
+    /**
+     * Set the daily data model while trying to load the data from the server.
+     *
+     * @param current weather data.
+     */
     public void setDaily(Daily daily) {
         mDaily = daily;
     }

@@ -34,11 +34,23 @@ import static com.demo.weatherapp.utils.LoaderIds.WEATHER;
 
 /**
  * Weather Application 1.0
+ * <p>
+ *     Parent activity to hold the {@link com.demo.weatherapp.dashboard.fragments.CurrentWeatherFragment}
+ *     and {@link com.demo.weatherapp.dashboard.fragments.DailyWeatherFragment} to show user its
+ *     near by weather info.
+ *     <p>
+ *         Weather information will be loaded once the used launched the application from fresh or
+ *         user presses hard refresh.
+ *     </p>
+ * </p>
  */
 public class LandingScreen extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<Weather> {
 
 
+    /**
+     * request code sent while asking the location access permission.
+     */
     private static final int LOCATION_ACCESS = 235;
 
     /**
@@ -58,8 +70,14 @@ public class LandingScreen extends AppCompatActivity
     @Nullable
     private ViewPager mViewPager;
 
+    /**
+     * Tab layout to show the header of the tabs.
+     */
     private TabLayout mTabs;
 
+    /**
+     * ProgressBar to show the indication of the data being loaded.
+     */
     private ProgressBar mBar;
 
     @SuppressWarnings("ConstantConditions")
@@ -81,6 +99,23 @@ public class LandingScreen extends AppCompatActivity
         checkPermissionAndFetchLocation();
     }
 
+    /**
+     * This method will check if application is having permission to access the user's location.
+     *
+     * <p>
+     *     If yes it will invoke the call to get the location of the user.
+     *     It will also check if the location it is trying to access is available or not. If yes
+     *     then it will go on to load the data using {@link WeatherLoader}. If no then it will
+     *     pop up a snack bar for the bottom of the sheet stating the problem
+     *     while fetching the data.
+     * </p>
+     * <p>
+     *     If there is not permission present to access the user's location, then this will ask user
+     *     to grant the permission of the location. If user grants it will go on to load the data.
+     *     If not then it will halt the progress. And will wait unless and until app is relaunched
+     *     or user presses hard refresh.
+     * </p>
+     */
     private void checkPermissionAndFetchLocation() {
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !=

@@ -1,6 +1,9 @@
 package com.demo.weatherapp.dashboard.loader;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.text.TextUtils;
 
@@ -11,19 +14,34 @@ import com.google.gson.GsonBuilder;
 
 /**
  * Weather Application 1.0
+ *
+ * <p>
+ *     Loader class which will load the weather data from the network.
+ *
+ *     Loader will check if weather is already loaded once if yes it will not invoke
+ *     the fetch call again unless and until {@link #forceLoad()} is called.
+ * </p>
  */
 public class WeatherLoader extends AsyncTaskLoader<Weather> {
 
-    public static final String TEMP =
-            "https://api.forecast.io/forecast/7dea2423dd5c383c01a842be1b2e6bb1/37.8267,-122.423";
-
+    /**
+     * Cached weather data.
+     */
     private Weather mWeather;
 
+    /**
+     * Network request url using which weather data can be loaded.
+     */
+    @NonNull
     private String url;
 
+    /**
+     * Key can be used to pass the url inside bundle when calling
+     * {@link android.support.v4.app.LoaderManager#initLoader(int, Bundle, LoaderManager.LoaderCallbacks)}
+     */
     public static final String URL = BuildConfig.APPLICATION_ID+".URL";
 
-    public WeatherLoader(Context context, String url) {
+    public WeatherLoader(Context context,@NonNull String url) {
         super(context);
         this.url = url;
     }
@@ -52,7 +70,13 @@ public class WeatherLoader extends AsyncTaskLoader<Weather> {
         super.deliverResult(data);
     }
 
-    public void forceLoad(String url) {
+    /**
+     * Overloaded method which can be used to forceload the weather data in scenario where
+     * there is need of forceload with different url.
+     *
+     * @param url which can be used to load data from the network.
+     */
+    public void forceLoad(@NonNull String url) {
         this.url = url;
         super.forceLoad();
     }

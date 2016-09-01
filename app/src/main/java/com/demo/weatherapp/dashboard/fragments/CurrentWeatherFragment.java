@@ -2,6 +2,7 @@ package com.demo.weatherapp.dashboard.fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,9 +17,16 @@ import com.demo.weatherapp.utils.Utils;
 
 /**
  * Weather Application 1.0
+ *
+ * <p>
+ *     View object which will show user current weather of the user's location.
+ * </p>
  */
 public class CurrentWeatherFragment extends Fragment {
 
+    /**
+     * Model object which will hold the current weather info.
+     */
     private Current mCurrent;
 
     /**
@@ -28,6 +36,7 @@ public class CurrentWeatherFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     public CurrentWeatherFragment() {
+        //PUBLIC FRAGMENT CONSTRUCTOR
     }
 
     /**
@@ -67,7 +76,12 @@ public class CurrentWeatherFragment extends Fragment {
         return rootView;
     }
 
-    public void setCurrent(Current current) {
+    /**
+     * Set the current data model while trying to load the data from the server.
+     *
+     * @param current weather data.
+     */
+    public void setCurrent(@NonNull Current current) {
         mCurrent = current;
     }
 }
